@@ -20,9 +20,20 @@ function App() {
     ]);
   }
 
+  function isForGoodWeather () {
+  const isGoodWeather = true;
+  setActivities(activities.filter((activities) => activities.isChecked === isGoodWeather));
+  }
+
+  
+  function handleDeleteActivity(id) {
+    setActivities(activities.filter((activities) => activities.id !==id));
+  }
+
   return (
     <div className="App">
-      <Activities activities={activities} />
+
+      <Activities onDeleteActivity={handleDeleteActivity} activities={activities} />
       <Form onAddActivity={handleAddActivity} />
     </div>
   );

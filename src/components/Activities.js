@@ -1,13 +1,15 @@
-export default function Activities({ activities, onAddActivity }) {
+export default function Activities({ activities, onAddActivity, onDeleteActivity}) {
   return (
     <ul>
-      {activities.map((activities) => {
+      {activities.map((activity) => {
         return (
-          <li key={activities.id}>
-            <span>{activities.act}</span>
+          <li key={activity.id}>
+            <span>{activity.act}</span>
+            <button onClick={()=> onDeleteActivity(activity.id)} >x</button>
           </li>
         );
       })}
     </ul>
   );
 }
+
